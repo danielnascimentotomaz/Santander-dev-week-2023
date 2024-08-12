@@ -1,8 +1,9 @@
 package me.dio.domain;
 
-
-
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,17 +13,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "tb_card")
-public class Card {
-
+@MappedSuperclass
+public abstract class BaseItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true)
-    private String number;
-
-    @Column(name = "available_limit", precision = 13, scale = 2)
-    private Long Limit;
-
+    private String icon;
+    private String description;
 }
