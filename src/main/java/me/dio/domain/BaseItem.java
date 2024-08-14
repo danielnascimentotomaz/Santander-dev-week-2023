@@ -1,9 +1,6 @@
 package me.dio.domain;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,4 +17,7 @@ public abstract class BaseItem {
     private Long id;
     private String icon;
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "user_id") // A chave estrangeira precisa
+    private User user;
 }

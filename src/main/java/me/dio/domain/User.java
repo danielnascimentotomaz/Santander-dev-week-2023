@@ -1,5 +1,6 @@
 package me.dio.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,10 +27,12 @@ public class User {
     private Card card;
 
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //A propriedade mappedBy é usada em mapeamentos de relacionamento bidirecional no JPA (Java Persistence API) para indicar qual entidade é responsável pelo relacionamento e para evitar a criação de tabelas intermediárias desnecessárias.
     private List<Featuare> featuares;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //A propriedade mappedBy é usada em mapeamentos de relacionamento bidirecional no JPA (Java Persistence API) para indicar qual entidade é responsável pelo relacionamento e para evitar a criação de tabelas intermediárias desnecessárias.
     private List<News> news;
 
 

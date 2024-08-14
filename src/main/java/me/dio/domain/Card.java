@@ -22,6 +22,7 @@ public class Card {
     @Column(unique = true)
     private String number;
 
+    //precision = 13, scale = 2 ex: 9999999999999.99
     @Column(name = "available_limit", precision = 13, scale = 2)
     private Long Limit;
 
