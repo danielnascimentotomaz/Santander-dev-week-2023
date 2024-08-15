@@ -4,6 +4,8 @@ import me.dio.domain.User;
 import me.dio.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
@@ -16,7 +18,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User findById(Long id) {
-        return userRepository.findById(id).orElseThrow(NoSuchFieldError::new);
+        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
