@@ -17,7 +17,7 @@ public abstract class BaseItem {
     private Long id;
     private String icon;
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "user_id") // A chave estrangeira precisa
-    private User user;
+    //@ManyToOne
+    // @JoinColumn(name = "user_id") // A chave estrangeira precisa
+    //private User user;
 }

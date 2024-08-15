@@ -20,6 +20,10 @@ public class User {
     private  Long id;
     private String nome;
 
+    public User(String nome) {
+        this.nome = nome;
+    }
+
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
@@ -27,13 +31,15 @@ public class User {
     private Card card;
 
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //@OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     //A propriedade mappedBy é usada em mapeamentos de relacionamento bidirecional no JPA (Java Persistence API) para indicar qual entidade é responsável pelo relacionamento e para evitar a criação de tabelas intermediárias desnecessárias.
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Featuare> featuares;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    //A propriedade mappedBy é usada em mapeamentos de relacionamento bidirecional no JPA (Java Persistence API) para indicar qual entidade é responsável pelo relacionamento e para evitar a criação de tabelas intermediárias desnecessárias.
-    private List<News> news;
+      //@OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+     //A propriedade mappedBy é usada em mapeamentos de relacionamento bidirecional no JPA (Java Persistence API) para indicar qual entidade é responsável pelo relacionamento e para evitar a criação de tabelas intermediárias desnecessárias.
+     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+     private List<News> news;
 
 
 }
